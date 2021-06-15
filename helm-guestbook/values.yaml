@@ -20,7 +20,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - helm-guestbook-ui-dev.fake
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
