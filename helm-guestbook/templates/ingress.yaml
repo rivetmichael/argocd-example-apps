@@ -1,6 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $serviceName := include "helm-guestbook.fullname" . -}}
 {{- $servicePort := .Values.service.port -}}
+{{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -24,7 +25,7 @@ spec:
   - host: {{ $host }}
     http:
       paths:
-        - path: {{ .Values.ingress.path }}
+        - path: {{ $ingressPath }}
           backend:
             serviceName: {{ $serviceName }}
             servicePort: {{ $servicePort }}
